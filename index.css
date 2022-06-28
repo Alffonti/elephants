@@ -1,0 +1,79 @@
+body {
+    font-size: 1.125rem; /* the root em depends on the th font size of the html document. By default it is 16px. I will be using rem for font-sizes  */
+    color: #707070;
+    margin: 0;
+}
+
+/* Typography */
+
+h1 {
+    font-size: 3rem;
+    color: #212614;
+    text-align: center;
+}
+
+h1 span {
+    color: #b7832f;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p{
+    margin-top: 0; /* avoid adding space to the .col elements  */
+}
+
+/*  Layout  */
+
+img {
+    max-width: 100%; /* using max-width instead of width to avoid the images grow beyond its size (resolution) making it loss the quality */
+}
+
+.container {
+    width: 95%; /* adding spacing to the container */
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.columns {
+    display: flex; /* this property stretchs the height of the columns to the parent element container (all items matches the height of the largest item)  */
+    justify-content: space-between; /* un order to work it should be some remaining space  */
+    align-items: flex-start; /* each column background just stretchs to the end of each column */
+    margin: 1em 0; /* the em property in margins is relative to the font-size of that element (in this case 1em means the size of the font of the .col-bg element )  */
+}
+
+/* media queries need to be after the default selector (if not it can be override) */
+/* from a maximun width of 600px and smaller */
+@media (max-width: 600px) {
+    .columns {
+        flex-direction: column;
+    }
+}
+
+.col-1 {
+    width: 20%; /* subtracting 5% for each column to space out the columns using the justify-content: space-between property  */
+}
+
+.col-2 {
+    width: 45%; /* subtracting 5% for each column to space out the columns using the justify-content: space-between property  */
+}
+
+.col-3 {
+    width: 70%; /* subtracting 5% for each column to space out the columns using the justify-content: space-between property  */ 
+}
+
+/* media queries need to be after the default selectors (if not it can be override) */
+@media (max-width: 600px) {
+    .col-1,
+    .col-2,
+    .col-3 {
+        width: 100%;
+    }
+}
+
+.col-bg {
+    background: #212614;
+    color: #fff;
+    padding: 1em; /* the em property in paddings is relative to the font-size of that element (in this case 1em means the size of the font of the .col-bg element )  */
+}
